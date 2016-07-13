@@ -166,8 +166,8 @@ public class RsaKeyUtils {
 				.getPrivate());
 
 		try {
-			IOUtils.write(publicKey, new FileOutputStream(new File("d:/rsa-keys/public")));
-			IOUtils.write(privateKey, new FileOutputStream(new File("d:/rsa-keys/private")));
+			IOUtils.write(publicKey, new FileOutputStream(new File("public")));
+			IOUtils.write(privateKey, new FileOutputStream(new File("private")));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -185,7 +185,7 @@ public class RsaKeyUtils {
 		FileInputStream fis = null;
 		PEMReader reader = null;
 		try {
-			fis = new FileInputStream(new File("d:/rsa-keys/public"));
+			fis = new FileInputStream(new File("public"));
 			reader = new PEMReader(new InputStreamReader(fis), new PasswordFinder() {  
 			    @Override  
 			    public char[] getPassword() {  
