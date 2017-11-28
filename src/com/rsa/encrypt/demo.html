@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script src="jsencrypt.min.js" type="text/javascript"></script>
+	<script>
+		function encrypt() {
+			var encrypt = new JSEncrypt();
+			var pubKey = document.getElementById('pubKey').value;
+			encrypt.setPublicKey(pubKey);
+			var msg = document.getElementById('msg').value;
+			var rst = encrypt.encrypt(msg); 
+			document.getElementById('result1').value=rst;
+		}
+		
+		function decrypt() {
+			var encrypt = new JSEncrypt();
+			var prvKey = document.getElementById('prvkey1').value;
+			encrypt.setPrivateKey(prvKey);
+			var encryptMsg = document.getElementById('result1').value;
+			var rst = encrypt.decrypt(encryptMsg); 
+			document.getElementById('result2').value=rst;
+		}
+	</script>
+</head>
+<body>
+	<textarea id="prvkey1" name="prvkey1" rows="10" cols="65">-----BEGIN PRIVATE KEY-----
+MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAL1wwQeTyPKmYkHy
+qjFIcCQSw97ZAv1yFN7wh+qR4agRslL7h6Jt7NtR9x2+J3YPeFFI9erVkFsJnhSa
+wtHdfz7G0mJcECUYizVMBUEgkvpG4hZ9DDINedjHHBAfO9dIyKr2wEZD7+O6oBj6
+pAQ7q9vuAdpJhI4QhVX9Qv3NJkyTAgMBAAECgYBfRVhedi1GEvUxU1fSRyrWiXVm
+Gl9NlNT4NaE1D76bpqK25vaUcpH+zp7nn1z7G9aXkojSXCsoDZMpq5c0sh8uVQl0
+qL9Hte7DxCn/Li2bNelKi1Y4mcg9cAxj7szaOTbKzSNE71cSXP9bo/DKP21fqVju
+GXyRTk0cws8jsLFvcQJBAPejpIMG1Fe62CXppiZ0LyYVEZlByuvcxcjRfprUY9z1
+zEdvZJhBm1zS3YXraxKg0g8QMtFSiubm1zeXlwUbBJsCQQDD1hi7BDtsN6WiFxMM
+maUInBz0n8DlqNr5Tlno/8YUWV31ifRcklCxPUj58u+7bVz5ftniIpiU64uskwwf
+qEtpAkBuR2ielO8A9osFLyy3mSvZ+K3yovL74EAP8wM/be/e2XMUKM4SY70NNDZE
+ShdPn2CMJrmKsAh9VTVoY1B0jJibAkEApzo8df5gK8G8+5POnXTaG2cLxsxgMPym
+uDryxecboybI+DIsa5w5sY/OsDmGAzuZKCftMJAwUQJujBgpQyM3+QJANSSjlpMr
+VliGVPaV9/F3XRj5lPDyXGBiBB3LeY3S02BqWJ8jS3tRZiAlE8gYEeJmZWb1wp0k
+LOOkYP6lylXygg==
+-----END PRIVATE KEY-----
+</textarea>
+	
+	
+	<textarea id="pubKey" name="pubKey" rows="10" cols="65">-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9cMEHk8jypmJB8qoxSHAkEsPe
+2QL9chTe8IfqkeGoEbJS+4eibezbUfcdvid2D3hRSPXq1ZBbCZ4UmsLR3X8+xtJi
+XBAlGIs1TAVBIJL6RuIWfQwyDXnYxxwQHzvXSMiq9sBGQ+/juqAY+qQEO6vb7gHa
+SYSOEIVV/UL9zSZMkwIDAQAB
+-----END PUBLIC KEY-----</textarea>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<input type="text" id="msg" />
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<button id="tst" value="TST" onclick="encrypt();">encrypt</button>
+	<button id="tst" value="TST" onclick="decrypt();">decrypt</button>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<input type="text" name="result1" id="result1" size="220" />
+	<br /><br />
+	<input type="text" name="result2" id="result2" size="220" />
+</body>
+</html>
